@@ -65,13 +65,15 @@ app.post('/api/todos', function create(req, res) {
    var newId;
    console.log(JSON.stringify(req.body));
    console.log(newOne);
-   
-     if (todos.length === 0) {
+    for (var i = 0; i < todos.length; i++) {
+           
+     if (todos[i] === 0) {
         newId = 1;
         console.log("this is the same");
      } else {
-      newId = todos[todos.length-1]._id+1;
+      newId = todos[i]._id+1;
      }
+   }
      var newTask = req.body.task;
      var newScript = req.body.description;
      var newTodo = todos.push({'_id': newId, 'task': newTask, 'description': newScript});
