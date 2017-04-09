@@ -115,6 +115,8 @@ app.put('/api/todos/:id', function update(req, res) {
    * id specified in the route parameter (:id) and respond
    * with the newly updated todo.
    */
+
+
    todos.forEach(function(el, index) {
     console.log(el._id);
     console.log(req.params.id);
@@ -146,9 +148,15 @@ app.delete('/api/todos/:id', function destroy(req, res) {
    * id specified in the route parameter (:id) and respond
    * with deleted todo.
    */
+   // todos.forEach(function(el, index) {
+   //  if (el._id == req.params.id) {
+   //    res.json(delete todos[index]);
+   //  }
+   // });
    console.log(req.params.id-1);
-   res.json(delete todos[req.params.id-1]);
+   // res.json(delete todos[req.params.id-1]);
    // delete todos[req.params.id-1];
+   res.json(todos.splice([req.params.id-1], 1));
    res.end();
 });
 
