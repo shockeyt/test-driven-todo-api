@@ -134,7 +134,9 @@ app.put('/api/todos/:id', function update(req, res) {
       // console.log("id of put is " + req.body._id);
       console.log(req.body.task);
       console.log(req.body.description);
-      res.json(req.body);
+      
+      //respond with updated todo
+      res.json(todos[index]);
     }
 
    });
